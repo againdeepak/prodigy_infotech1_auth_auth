@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include('../partials/head'); %>
+
+</head>
+<body>
+    
+    <div class="container">
+        <%- include('../partials/header'); %>
+            <main>
+                <div class="jumbotron">
+                    <!-- <h2 class="mb-4">Add your Note</h2> -->
+                    <form action="http://localhost:3009/note/create" method="POST">
+                        <div class="form-group">
+                            <label for="title">Title</label>
+                            <input type="text" class="form-control" id="title" name="title" placeholder="Enter title">
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <textarea class="form-control" id="description" name="description" rows="3"
+                                placeholder="Enter description"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Add note</button>
+                    </form>
+                </div>
+            </main>
+    </div>
+</body>
+
+</html>

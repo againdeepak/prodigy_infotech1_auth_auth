@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Dear, <%=decode.username%>
+    </title>
+    <%- include('../partials/head'); %>
+</head>
+
+<body class="container">
+    <header>
+        <%- include('../partials/header'); %>
+    </header>
+
+    <main>
+        <div class="jumbotron d-flex justify-content-center">
+            <div class="card text-white bg-success mb-3 " style="max-width: 18rem;">
+                <div class="card-header">Welcome:<b> <i><%=decode.username%></i></b> </div>
+                <div class="card-body">
+                    <h5 class="card-title">Email: <b><i><%=decode.email%></i></b></h5>
+                    <!-- <p class="card-text">Total notes <b>decode</b></p> -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <%- include('../partials/footer'); %>
+    </footer>
+</body>
+
+</html>

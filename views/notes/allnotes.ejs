@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All your notes...</title>
+    <%- include('../partials/head'); %>
+</head>
+
+<body>
+    <% if(message.length !==0) { %>
+        <div class="container text-center">
+            <p id="flashMessage" class="text-primary">
+                <%= message %>
+            </p>
+        </div>
+        <% } %>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="navbar-brand btn-primary btn" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="navbar-brand btn-warning btn " href="http://localhost:3009/user/about">About</a>
+                  </li>
+               
+                <li class="nav-item">
+                    <a class="navbar-brand btn-primary btn" href="http://localhost:3009/note/create">Create notes</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="navbar-brand btn-danger btn" href="#" onclick="sendPostRequest()">Logout</a>
+            </li>
+            </ul>
+        </nav>
+        <main>
+            <div class="jumbotron ">
+                <%if(Userid.notes.length===0){%>
+                    <p class="text-center">Don't have any notes <strong>
+                            <%= Userid.username.toUpperCase()%>!
+                        </strong> <a href="http://localhost:3009/note/create"><i>Create_Note+...</i></a>
+                    </p>
+                    <%} else{%>
+                        <p class="text-center">All your notes <strong>
+                                <%= Userid.username.toUpperCase()%>
+                            </strong></p>
+                        <div class="d-flex flex-wrap justify-content-center">
+                            <% for(let note of Userid.notes){%>
+                                <div class="card mx-2 my-2" style="width: 18rem;">
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                                <%=note.title%>
+                                        </h5>
+                                        <p class="card-text">
+                                            <%=note.description%>
+                                        </p>
+                                        <p class="card-text">Email: <strong><i>
+                                                    <%=Userid.email%>
+                                                </i></strong></p>
+
+                                    </div>
+                                </div>
+                                <br><br>
+                                <%}%>
+                        </div>
+                    <%}%>
+            </div>
+        </main>
+    </div>
+    <script src="/javascript/logoutJWT.js"></script>
+    <script src="/javascript/loginerroflash.js"></script>
+
+</body>
+
+</html>

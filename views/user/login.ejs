@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <%- include('../partials/head'); %>
+</head>
+
+<body>
+    <% if(message.length !==0) { %>
+        <div class="container text-center">
+            <p id="flashMessage" class="text-primary">
+                <%= message %>
+            </p>
+        </div>
+        <% } %>
+            <div class="container">
+                <%- include('../partials/header'); %>
+                    <main>
+                        <div class="jumbotron">
+                            <form action="http://localhost:3009/user/login" method="POST" class="form">
+                                <div class="signup_page">
+                                    <h2>Login</h2>
+                                    <div class="field">
+                                        <label for="login_email">Email:</label>
+                                        <input type="email" name="email" id="login_email">
+                                    </div>
+                                    <div class="field">
+                                        <label for="login_password">Password:</label>
+                                        <input type="password" name="password" id="login_password">
+                                    </div>
+                                    <button type="submit"><b>Login</b></button>
+                                </div>
+                            </form>
+                        </div>
+                    </main>
+                    <footer>
+                        <%- include('../partials/footer'); %>
+                    </footer>
+            </div>
+            <script src="/javascript/loginerroflash.js"></script>
+</body>
+
+</html>
