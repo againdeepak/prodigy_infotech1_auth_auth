@@ -22,7 +22,6 @@ exports.createNote=async(req,res)=>{
     const Userid=await User.findOne({email:decode.email});
    
     const savedNote=await note.save();
-    console.log(savedNote);
     //find the post by ID, and the new comment to its comments array...
     const updatedUser=await User.findByIdAndUpdate(Userid._id,{$push:{notes:savedNote._id}},{new:true}).populate("notes");//populate the comments array with comment documents
     res.status(200).redirect('/note/get');
